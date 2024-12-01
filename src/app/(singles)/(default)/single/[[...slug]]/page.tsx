@@ -2,7 +2,9 @@ import React from "react";
 import NcImage from "@/components/NcImage/NcImage";
 import SingleHeader from "@/app/(singles)/SingleHeader";
 
-const PageSingle = () => {
+const PageSingle = ({ params  }: any) => {
+  const slug = params.slug;
+  console.log(slug)
   return (
     <>
       <div className={`nc-PageSingle pt-8 lg:pt-16`}>
