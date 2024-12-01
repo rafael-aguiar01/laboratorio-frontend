@@ -1,30 +1,48 @@
+'use client';
 import React from "react";
-import { DEMO_POSTS_NEWS } from "@/data/posts";
+import { useState, useEffect } from 'react';
 import SectionMagazine10 from "@/components/Sections/SectionMagazine10";
 import SectionMagazine9 from "@/components/Sections/SectionMagazine9";
 import SectionAds from "@/components/Sections/SectionAds";
 import SectionMagazine2 from "@/components/Sections/SectionMagazine2";
 import SectionMagazine11 from "@/components/Sections/SectionMagazine11";
 import SectionLatestPosts from "@/components/Sections/SectionLatestPosts";
+import { DEMO_POSTS_NEWS } from "@/data/posts";
+import sectionsData from './sections.json'
+import { useGetArticlesQuery } from "@/services/api/articles/ServiceArticles";
+import { distributeArticles } from "./distributeArticles";
 
-//
 const MAGAZINE1_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 8 && i < 16);
+const MAGAZINE9_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 6 && i < 18)
 const MAGAZINE2_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 0 && i < 7);
-//
+const MAGAZINE11_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i > 7 && i < 18)
 
 const PageHomeDemo6: React.FC = () => {
+  const portalId = 4
+  const { data: articles, isLoading } = useGetArticlesQuery(portalId)
+  console.log(articles)
+  const sections = sectionsData.sections
+
+  if (isLoading) {
+    return <div>Carregando...</div>; 
+  }
+
+  const distributedArticles = distributeArticles(articles || [], sections);
+
   return (
-    <div className="nc-PageHomeDemo6 relative [ nc-section-rounded-md ]">9
+    <div className="nc-PageHomeDemo6 relative [ nc-section-rounded-md ]">
       <div className="relative overflow-hidden">
         
         <div className="container relative">
-          
-          <SectionMagazine10 posts={MAGAZINE1_POSTS} />
+        {/* <SectionAds className="pt-16 lg:pt-24" /> */}
+
+          {/* As 4 principais matérias do home */}
+          <SectionMagazine10 posts={distributedArticles.section10} />
 
           <SectionMagazine9
             gapClassName="gap-6"
             className="pt-16 lg:pt-24"
-            posts={DEMO_POSTS_NEWS.filter((_, i) => i >= 6 && i < 18)}
+            posts={distributedArticles.section9}
           />
 
           <SectionAds className="pt-16 lg:pt-24" />
@@ -32,7 +50,7 @@ const PageHomeDemo6: React.FC = () => {
           <SectionMagazine2
             className="pt-16 lg:pt-24"
             heading="Latest Articles"
-            posts={MAGAZINE2_POSTS}
+            posts={distributedArticles.section2}
           />
 
           {/* === SECTION 11 === */}
@@ -45,7 +63,7 @@ const PageHomeDemo6: React.FC = () => {
             <SectionLatestPosts
               heading="Latest Articles"
               className="py-16 lg:py-24"
-              posts={DEMO_POSTS_NEWS.filter((_, i) => i > 7 && i < 18)}
+              posts={distributedArticles.section11}
               postCardName="card4"
               gridClass="sm:grid-cols-2"
             />

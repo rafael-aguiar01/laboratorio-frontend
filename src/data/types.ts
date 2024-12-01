@@ -31,14 +31,14 @@ export interface PostAuthorType {
   count: number;
   desc: string;
   jobName: string;
-  href: Route;
+  href: string;
 }
 
 export interface PostDataType {
   id: string | number;
   author: PostAuthorType;
   date: string;
-  href: Route;
+  href: string;
   categories: TaxonomyType[];
   title: string;
   featuredImage: string | StaticImageData;
