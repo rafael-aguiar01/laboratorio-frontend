@@ -14,9 +14,12 @@ import { ArrowUpIcon } from "@heroicons/react/24/solid";
 
 const demoTags = DEMO_TAGS.filter((_, i) => i < 9);
 
-export interface SingleContentProps {}
+export interface SingleContentProps {
+  article: any
+}
 
-const SingleContent: FC<SingleContentProps> = ({}) => {
+const SingleContent: FC<SingleContentProps> = ({article}) => {
+  const { content } = article?.article || {};
   const endedAnchorRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLButtonElement>(null);
@@ -77,7 +80,7 @@ const SingleContent: FC<SingleContentProps> = ({}) => {
           className="prose lg:prose-lg !max-w-screen-md mx-auto dark:prose-invert"
           ref={contentRef}
         >
-          <SingleContentDemo />
+          <SingleContentDemo content={content}/>
         </div>
 
         {/* TAGS */}
