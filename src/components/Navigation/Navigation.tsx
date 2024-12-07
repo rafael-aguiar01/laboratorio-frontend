@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import NavigationItem from "./NavigationItem";
 import { NAVIGATION_DEMO_2 } from "@/data/navigation";
+import menuData from '../../data/jsons/menu.json'
+
 
 interface Props {
   className?: string;
@@ -9,7 +11,7 @@ interface Props {
 const Navigation: FC<Props> = ({ className = "flex" }) => {
   return (
     <ul className={`nc-Navigation items-center ${className}`}>
-      {NAVIGATION_DEMO_2.map((item) => (
+      {menuData.map((item) => (
         <NavigationItem key={item.id} menuItem={item} />
       ))}
     </ul>
@@ -17,3 +19,4 @@ const Navigation: FC<Props> = ({ className = "flex" }) => {
 };
 
 export default Navigation;
+ 

@@ -8,6 +8,7 @@ import { NavItemType } from "@/components/Navigation/NavigationItem";
 import Link from "next/link";
 import NcImage from "../NcImage/NcImage";
 import { Route } from "@/routers/types";
+import menuData from '../../data/jsons/menu.json'
 
 const recentPosts = [
   {
@@ -83,7 +84,7 @@ export default function TemplatesDropdown() {
                   <div className="container">
                     <div className="flex text-sm border-t border-slate-200 dark:border-slate-700 py-14">
                       <div className="flex-1 grid grid-cols-4 gap-6 pr-6 xl:pr-8">
-                        {MEGAMENU_TEMPLATES.map((item, index) => (
+                        {menuData.map((item, index) => (
                           <div key={index}>
                             <p className="font-medium text-slate-900 dark:text-neutral-200">
                               {item.name}

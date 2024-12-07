@@ -10,10 +10,11 @@ import NcImage from "../NcImage/NcImage";
 export interface NavItemType {
   id: string;
   name: string;
-  href: Route;
+  href: Route | string;
   targetBlank?: boolean;
   children?: NavItemType[];
-  type?: "dropdown" | "megaMenu" | "none";
+  type?: string;
+  // type?: "dropdown" | "megaMenu" | "none";
   isNew?: boolean;
 }
 

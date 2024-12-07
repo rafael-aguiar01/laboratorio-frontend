@@ -17,7 +17,6 @@ const PageSingle = ({ params  }: any) => {
           </div>
         </header>
 
-        {/* FEATURED IMAGE */}
         <NcImage
           alt="single"
           containerClassName="container my-10 sm:my-12"

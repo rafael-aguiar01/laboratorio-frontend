@@ -11,14 +11,16 @@ import SocialsList from "@/components/SocialsList/SocialsList";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import SwitchDarkMode from "@/components/SwitchDarkMode/SwitchDarkMode";
 import Link from "next/link";
+import menuData from '../../data/jsons/menu.json'
 
+ 
 export interface NavMobileProps {
   data?: NavItemType[];
   onClickClose?: () => void;
 }
 
 const NavMobile: React.FC<NavMobileProps> = ({
-  data = NAVIGATION_DEMO_2,
+  data = menuData,
   onClickClose,
 }) => {
   const _renderMenuChild = (

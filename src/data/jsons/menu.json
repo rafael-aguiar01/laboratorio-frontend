@@ -1,0 +1,113 @@
+[
+    {
+      "id": "home",
+      "href": "#",
+      "name": "Últimas",
+      "children": [
+        { "id": "home-1", "href": "/", "name": "Policial" },
+        { "id": "home-2", "href": "/home-2", "name": "Home page 2" },
+        { "id": "home-3", "href": "/home-3", "name": "Home page 3" },
+        { "id": "home-4", "href": "/home-4", "name": "Home page 4" },
+        { "id": "home-5", "href": "/home-6", "name": "Home page 5" },
+        { "id": "header-1", "href": "/", "name": "Header style 1", "isNew": true },
+        { "id": "header-2", "href": "/home-2", "name": "Header style 2", "isNew": true }
+      ]
+    },
+    {
+      "id": "single",
+      "href": "/single/demo-slug",
+      "name": "Editoriais",
+      "type": "dropdown",
+      "children": [
+        { "id": "single-1", "href": "/single/demo-slug", "name": "Single page 1" },
+        { "id": "single-2", "href": "/single-2/demo-slug", "name": "Single page 2" },
+        { "id": "single-3", "href": "/single-3/demo-slug", "name": "Single page 3" },
+        { "id": "single-4", "href": "/single-4/demo-slug", "name": "Single page 4" },
+        { "id": "single-audio", "href": "/single-audio/demo-slug", "name": "Single Audio" },
+        { "id": "single-video", "href": "/single-video/demo-slug", "name": "Single Video" },
+        { "id": "single-gallery", "href": "/single-gallery/demo-slug", "name": "Single Gallery", "isNew": true }
+      ]
+    },
+    {
+      "id": "archive",
+      "href": "#",
+      "name": "Especiais",
+      "children": [
+        { "id": "category", "href": "/archive/demo-slug", "name": "Category page" },
+        { "id": "category-audio", "href": "/archive-2/demo-slug", "name": "Category audio" },
+        { "id": "category-video", "href": "/archive-3/demo-slug", "name": "Category videos" },
+        { "id": "search", "href": "/search", "name": "Search page" },
+        { "id": "search-2", "href": "/search-2", "name": "Search page 2" },
+        { "id": "author", "href": "/author/demo-slug", "name": "Author page" }
+      ]
+    },
+    {
+      "id": "colunistas",
+      "href": "#",
+      "name": "Colunistas",
+      "children": [
+        { "id": "category", "href": "/archive/demo-slug", "name": "Category page" },
+        { "id": "category-audio", "href": "/archive-2/demo-slug", "name": "Category audio" },
+        { "id": "category-video", "href": "/archive-3/demo-slug", "name": "Category videos" },
+        { "id": "search", "href": "/search", "name": "Search page" },
+        { "id": "search-2", "href": "/search-2", "name": "Search page 2" },
+        { "id": "author", "href": "/author/demo-slug", "name": "Author page" }
+      ]
+    },
+    {
+      "id": "other",
+      "href": "#",
+      "name": "Eventos Locais",
+      "children": [
+        { "id": "dashboard", "href": "/dashboard", "name": "Dashboard" },
+        { "id": "about", "href": "/about", "name": "About" },
+        { "id": "contact", "href": "/contact", "name": "Contact us" },
+        { "id": "login", "href": "/login", "name": "Login" },
+        { "id": "signup", "href": "/signup", "name": "Signup" },
+        { "id": "forgot-pass", "href": "/forgot-pass", "name": "Forgot password" },
+        { "id": "subscription", "href": "/subscription", "name": "Subscription" }
+      ]
+    },
+    {
+      "id": "class",
+      "href": "#",
+      "name": "Classificados",
+      "children": [
+        { "id": "dashboard", "href": "/dashboard", "name": "Dashboard" },
+        { "id": "about", "href": "/about", "name": "About" },
+        { "id": "contact", "href": "/contact", "name": "Contact us" },
+        { "id": "login", "href": "/login", "name": "Login" },
+        { "id": "signup", "href": "/signup", "name": "Signup" },
+        { "id": "forgot-pass", "href": "/forgot-pass", "name": "Forgot password" },
+        { "id": "subscription", "href": "/subscription", "name": "Subscription" }
+      ]
+    },
+    {
+      "id": "jobs",
+      "href": "#",
+      "name": "Empregos",
+      "children": [
+        { "id": "dashboard", "href": "/dashboard", "name": "Dashboard" },
+        { "id": "about", "href": "/about", "name": "About" },
+        { "id": "contact", "href": "/contact", "name": "Contact us" },
+        { "id": "login", "href": "/login", "name": "Login" },
+        { "id": "signup", "href": "/signup", "name": "Signup" },
+        { "id": "forgot-pass", "href": "/forgot-pass", "name": "Forgot password" },
+        { "id": "subscription", "href": "/subscription", "name": "Subscription" }
+      ]
+    },
+    {
+      "id": "letter",
+      "href": "#",
+      "name": "Newsletter",
+      "children": [
+        { "id": "dashboard", "href": "/dashboard", "name": "Dashboard" },
+        { "id": "about", "href": "/about", "name": "About" },
+        { "id": "contact", "href": "/contact", "name": "Contact us" },
+        { "id": "login", "href": "/login", "name": "Login" },
+        { "id": "signup", "href": "/signup", "name": "Signup" },
+        { "id": "forgot-pass", "href": "/forgot-pass", "name": "Forgot password" },
+        { "id": "subscription", "href": "/subscription", "name": "Subscription" }
+      ]
+    }
+  ]
