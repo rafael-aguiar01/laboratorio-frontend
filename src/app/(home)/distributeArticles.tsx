@@ -25,7 +25,7 @@ export const distributeArticles = (
       const filteredArticles = articles.slice(startIndex, endIndex).map((article: any) => ({
         id: article.id,
         title: article.title,
-        href: `/single-4/${article.slug}`,
+        href: `/single/${article.slug}`,
         featuredImage: article.featureImg, 
         categories: article.tags ? article.tags.map((tag: string) => ({ name: tag })) : [],
         author: {
