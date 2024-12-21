@@ -18,28 +18,14 @@ const MAGAZINE9_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 6 && i < 18)
 const MAGAZINE2_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 0 && i < 7);
 const MAGAZINE11_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i > 7 && i < 18)
 
-const postsDemo1: PostDataType[] = DEMO_POSTS_NEWS.filter(
-  (_, i) => i > 0 && i < 6
-);
-const postsDemo2: PostDataType[] = DEMO_POSTS_NEWS.filter(
-  (_, i) => i > 5 && i < 11
-);
-const postsDemo3: PostDataType[] = DEMO_POSTS_NEWS.filter(
-  (_, i) => i > 11 && i < 17
-);
-
 const PageHomeDemo6: React.FC = () => {
   const portalId = 4
   const { data: articles, isLoading } = useGetArticlesQuery(portalId)
-  const posts = [postsDemo1, postsDemo2, postsDemo3]
-  console.log(articles)
   const sections = sectionsData.sections
 
   if (isLoading) {
     return <div>Carregando...</div>; 
   }
-
-  
 
   const distributedArticles = distributeArticles(articles || [], sections);
 
@@ -51,27 +37,30 @@ const PageHomeDemo6: React.FC = () => {
         <SectionAds className="pt-16 lg:pt-24" />
 
           {/* As 4 principais matérias do home */}
-          <SectionMagazine10 posts={distributedArticles.section10} />
+          <SectionMagazine10 
+          posts={distributedArticles.section10} />
 
           <SectionMagazine9
-            gapClassName="gap-6"
-            className="pt-16 lg:pt-24"
-            posts={distributedArticles.section9}
-          />
+          gapClassName="gap-6"
+          className="pt-16 lg:pt-24"
+          posts1={distributedArticles.section50}
+          posts2={distributedArticles.section51}
+          posts3={distributedArticles.section52}
+      />
 
           <SectionAds className="pt-16 lg:pt-24" />
 
-          <SectionMagazine2
+          {/* <SectionMagazine2
             className="pt-16 lg:pt-24"
             heading="Latest Articles"
             posts={distributedArticles.section2}
-          />
+          /> */}
 
           {/* === SECTION 11 === */}
-          <SectionMagazine11 
+          {/* <SectionMagazine11 
             className="py-16 lg:py-24" 
             posts = { posts}
-            />
+            /> */}
         </div>
 
         {/* === SECTION 11 === */}
