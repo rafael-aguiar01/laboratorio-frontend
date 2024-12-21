@@ -8,15 +8,15 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import React, { FC } from "react";
 
-const postsDemo1: PostDataType[] = DEMO_POSTS_NEWS.filter(
-  (_, i) => i > 0 && i < 6
-);
-const postsDemo2: PostDataType[] = DEMO_POSTS_NEWS.filter(
-  (_, i) => i > 5 && i < 11
-);
-const postsDemo3: PostDataType[] = DEMO_POSTS_NEWS.filter(
-  (_, i) => i > 11 && i < 17
-);
+// const postsDemo1: PostDataType[] = DEMO_POSTS_NEWS.filter(
+//   (_, i) => i > 0 && i < 6
+// );
+// const postsDemo2: PostDataType[] = DEMO_POSTS_NEWS.filter(
+//   (_, i) => i > 5 && i < 11
+// );
+// const postsDemo3: PostDataType[] = DEMO_POSTS_NEWS.filter(
+//   (_, i) => i > 11 && i < 17
+// );
 
 export interface SectionMagazine11Props {
   posts?: PostDataType[][];
@@ -25,7 +25,8 @@ export interface SectionMagazine11Props {
 }
 
 const SectionMagazine11: FC<SectionMagazine11Props> = ({
-  posts = [postsDemo1, postsDemo2, postsDemo3],
+  // posts = [postsDemo1, postsDemo2, postsDemo3],
+  posts,
   className = "",
   categories = [DEMO_CATEGORIES[0], DEMO_CATEGORIES[7], DEMO_CATEGORIES[4]],
 }) => {
@@ -46,7 +47,7 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
             <ArrowRightIcon className="ms-1.5 w-3 h-3" />
           </a>
         </div>
-        {posts[0] && (
+        {posts && posts[0] && (
           <Card18
             ratio="aspect-w-4 aspect-h-3"
             className="flex-shrink-0"
@@ -64,9 +65,9 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
                     name={""}
                     color={category.color as TwMainColor}
                   />
-                  <Link href={post.href} title={post.title} className="flex">
-                    {post.title}
-                  </Link>
+                  <a href={post.href} title={post.title} className="flex">
+                      {post.title}
+                  </a>
                 </h2>
               </li>
             ))}
@@ -81,7 +82,7 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
         Listen to audio live
       </Heading>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-4 md:gap-7">
-        {categories.map((cate, i) => renderListByCat(cate, posts[i]))}
+      {categories.map((cate, i) => posts && renderListByCat(cate, posts[i]))}
       </div>
     </div>
   );

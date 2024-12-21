@@ -11,21 +11,35 @@ import { DEMO_POSTS_NEWS } from "@/data/posts";
 import sectionsData from './sections.json'
 import { useGetArticlesQuery } from "@/services/api/articles/ServiceArticles";
 import { distributeArticles } from "./distributeArticles";
+import { PostDataType } from "@/data/types";
 
 const MAGAZINE1_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 8 && i < 16);
 const MAGAZINE9_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 6 && i < 18)
 const MAGAZINE2_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 0 && i < 7);
 const MAGAZINE11_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i > 7 && i < 18)
 
+const postsDemo1: PostDataType[] = DEMO_POSTS_NEWS.filter(
+  (_, i) => i > 0 && i < 6
+);
+const postsDemo2: PostDataType[] = DEMO_POSTS_NEWS.filter(
+  (_, i) => i > 5 && i < 11
+);
+const postsDemo3: PostDataType[] = DEMO_POSTS_NEWS.filter(
+  (_, i) => i > 11 && i < 17
+);
+
 const PageHomeDemo6: React.FC = () => {
   const portalId = 4
   const { data: articles, isLoading } = useGetArticlesQuery(portalId)
+  const posts = [postsDemo1, postsDemo2, postsDemo3]
   console.log(articles)
   const sections = sectionsData.sections
 
   if (isLoading) {
     return <div>Carregando...</div>; 
   }
+
+  
 
   const distributedArticles = distributeArticles(articles || [], sections);
 
@@ -34,7 +48,7 @@ const PageHomeDemo6: React.FC = () => {
       <div className="relative overflow-hidden">
         
         <div className="container relative">
-        {/* <SectionAds className="pt-16 lg:pt-24" /> */}
+        <SectionAds className="pt-16 lg:pt-24" />
 
           {/* As 4 principais matérias do home */}
           <SectionMagazine10 posts={distributedArticles.section10} />
@@ -54,7 +68,10 @@ const PageHomeDemo6: React.FC = () => {
           />
 
           {/* === SECTION 11 === */}
-          <SectionMagazine11 className="py-16 lg:py-24" />
+          <SectionMagazine11 
+            className="py-16 lg:py-24" 
+            posts = { posts}
+            />
         </div>
 
         {/* === SECTION 11 === */}
@@ -64,6 +81,7 @@ const PageHomeDemo6: React.FC = () => {
               heading="Latest Articles"
               className="py-16 lg:py-24"
               posts={distributedArticles.section11}
+              // posts={MAGAZINE11_POSTS}
               postCardName="card4"
               gridClass="sm:grid-cols-2"
             />

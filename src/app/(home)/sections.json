@@ -3,8 +3,7 @@
       {
         "id": "section10",
         "component": "SectionMagazine10",
-        "startIndex": 0,
-        "endIndex": 8
+        "filterType": "manchete"
       },
       {
         "id": "section9",

@@ -3,24 +3,32 @@ import logoImg from "@/images/logo.png";
 import logoLightImg from "@/images/logo-light.png";
 import LogoSvg from "./LogoSvg";
 import Link from "next/link";
+import Image from "next/image"
 
 export interface LogoProps {
   img?: string;
   imgLight?: string;
+  altText?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({
   img = logoImg,
   imgLight = logoLightImg,
+  altText = "Logo", // Texto alternativo padrão
 }) => {
   return (
     <Link
       href="/"
       className="ttnc-logo inline-block text-primary-6000 flex-shrink-0"
     >
-      {/* THIS USE FOR MY MULTI DEMO */}
-      {/* IF YOU ARE MY CLIENT. PLESE DELETE THIS CODE AND YOU YOUR IMAGE PNG BY BELLOW CODE */}
-      <LogoSvg />
+      {/* <LogoSvg /> */}
+      <Image
+        src={img}
+        alt={altText}
+        width={120} // Largura ideal para o logo
+        height={40} // Altura proporcional
+        priority // Carregar como prioridade para melhorar o LCP
+      />
     </Link>
   );
 };

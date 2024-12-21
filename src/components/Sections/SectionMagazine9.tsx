@@ -24,11 +24,11 @@ const SectionMagazine9: FC<SectionMagazine9Props> = ({
 }) => {
   return (
     <div className={`nc-SectionMagazine9 relative ${className}`}>
-      {heading && (
+      {/* {heading && (
         <Heading desc={"Click on music icon and enjoy music or podcast"}>
           {heading}
         </Heading>
-      )}
+      )} */}
       <div
         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${gapClassName}`}
       >
