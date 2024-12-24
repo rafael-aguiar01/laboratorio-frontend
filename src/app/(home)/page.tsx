@@ -18,10 +18,21 @@ const MAGAZINE9_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 6 && i < 18)
 const MAGAZINE2_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 0 && i < 7);
 const MAGAZINE11_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i > 7 && i < 18)
 
+const postsDemo1: PostDataType[] = DEMO_POSTS_NEWS.filter(
+  (_, i) => i > 0 && i < 6
+);
+const postsDemo2: PostDataType[] = DEMO_POSTS_NEWS.filter(
+  (_, i) => i > 5 && i < 11
+);
+const postsDemo3: PostDataType[] = DEMO_POSTS_NEWS.filter(
+  (_, i) => i > 11 && i < 17
+);
+
 const PageHomeDemo6: React.FC = () => {
   const portalId = 4
   const { data: articles, isLoading } = useGetArticlesQuery(portalId)
   const sections = sectionsData.sections
+  const posts = [postsDemo1, postsDemo2, postsDemo3]
 
   if (isLoading) {
     return <div>Carregando...</div>; 
@@ -50,17 +61,21 @@ const PageHomeDemo6: React.FC = () => {
 
           <SectionAds className="pt-16 lg:pt-24" />
 
+          <SectionMagazine11 
+            className="py-16 lg:py-24" 
+            posts1={distributedArticles.section53}
+            posts2={distributedArticles.section54}
+            posts3={distributedArticles.section55}
+            />
+
           {/* <SectionMagazine2
             className="pt-16 lg:pt-24"
-            heading="Latest Articles"
-            posts={distributedArticles.section2}
+            heading=""
+            posts={MAGAZINE1_POSTS}
           /> */}
 
           {/* === SECTION 11 === */}
-          {/* <SectionMagazine11 
-            className="py-16 lg:py-24" 
-            posts = { posts}
-            /> */}
+
         </div>
 
         {/* === SECTION 11 === */}

@@ -27,6 +27,34 @@
         "filterType": "política",
         "startIndex": 0,
         "endIndex": 3
+      },
+      {
+        "id": "section53",
+        "component": "Magazine11Coluna1",
+        "filterType": "política",
+        "startIndex": 0,
+        "endIndex": 6
+      },
+      {
+        "id": "section54",
+        "component": "Magazine11Coluna2",
+        "filterType": "polícia",
+        "startIndex": 0,
+        "endIndex": 6
+      },
+      {
+        "id": "section55",
+        "component": "Magazine11Coluna3",
+        "filterType": "famosos",
+        "startIndex": 0,
+        "endIndex": 6
+      },
+      {
+        "id": "section2",
+        "component": "SectionMagazine2",
+        "filterType": "famosos",
+        "startIndex": 0,
+        "endIndex": 3
       }
     ]
   }
