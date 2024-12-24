@@ -19,13 +19,13 @@
       "name": "Editoriais",
       "type": "dropdown",
       "children": [
-        { "id": "single-1", "href": "/single/demo-slug", "name": "Single page 1" },
-        { "id": "single-2", "href": "/single-2/demo-slug", "name": "Single page 2" },
-        { "id": "single-3", "href": "/single-3/demo-slug", "name": "Single page 3" },
-        { "id": "single-4", "href": "/single-4/demo-slug", "name": "Single page 4" },
-        { "id": "single-audio", "href": "/single-audio/demo-slug", "name": "Single Audio" },
-        { "id": "single-video", "href": "/single-video/demo-slug", "name": "Single Video" },
-        { "id": "single-gallery", "href": "/single-gallery/demo-slug", "name": "Single Gallery", "isNew": true }
+        { "id": "single-1", "href": "/archive/6", "name": "Cidades" },
+        { "id": "single-2", "href": "/archive/4", "name": "Economia" },
+        { "id": "single-3", "href": "/archive/7", "name": "Esportes" },
+        { "id": "single-4", "href": "/archive/3", "name": "Famosos" },
+        { "id": "single-5", "href": "/archive/5", "name": "Internacional" },
+        { "id": "single-6", "href": "/archive/2", "name": "Polícia" },
+        { "id": "single-7", "href": "/archive/1", "name": "Política" }
       ]
     },
     {

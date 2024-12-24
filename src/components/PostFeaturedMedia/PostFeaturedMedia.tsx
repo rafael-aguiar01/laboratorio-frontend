@@ -22,14 +22,15 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
 }) => {
   const { featuredImage, postType, videoUrl, galleryImgs, audioUrl, id, href } =
     post;
-
+    
+  console.log(featuredImage)
   const isPostMedia = () => postType === "video" || postType === "audio";
 
   const renderGallerySlider = () => {
     if (!galleryImgs) return null;
     return (
       <GallerySlider
-        href={href}
+        // href={href}
         galleryImgs={galleryImgs}
         className="absolute inset-0 z-10"
         galleryClass="absolute inset-0"
@@ -77,7 +78,7 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
         />
       )}
       {renderContent()}
-      {postType !== "gallery" && (
+      {/* {postType !== "gallery" && (
         <Link
           href={href}
           className={`block absolute inset-0 ${
@@ -86,7 +87,7 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
               : ""
           }`}
         />
-      )}
+      )} */}
     </div>
   );
 };

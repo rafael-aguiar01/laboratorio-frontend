@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+'use client';
+
+import React from "react";
 import ModalCategories from "../../ModalCategories";
 import ModalTags from "../../ModalTags";
-import { DEMO_POSTS } from "@/data/posts";
-import { PostDataType } from "@/data/types";
 import { DEMO_CATEGORIES, DEMO_TAGS } from "@/data/taxonomies";
 import { DEMO_AUTHORS } from "@/data/authors";
 import Pagination from "@/components/Pagination/Pagination";
@@ -14,42 +14,37 @@ import BackgroundSection from "@/components/BackgroundSection/BackgroundSection"
 import SectionGridCategoryBox from "@/components/SectionGridCategoryBox/SectionGridCategoryBox";
 import ButtonSecondary from "@/components/Button/ButtonSecondary";
 import SectionSliderNewAuthors from "@/components/SectionSliderNewAthors/SectionSliderNewAuthors";
-import Image from "next/image";
+import { useGetCategoryArticlesQuery } from "@/services/api/articles/ServiceArticles";
+import Card18 from "@/components/Card18/Card18";
 
-// Tag and category have same data type - we will use one demo data
-const posts: PostDataType[] = DEMO_POSTS.filter((_, i) => i < 16);
+const PageArchive = ({ params }: { params: { slug: string } }) => {
+  const portalId = 4;
+  const category = params.slug;
+  const { data: apiResponse, isLoading } = useGetCategoryArticlesQuery({ portalId, category });
 
-const PageArchive = ({}) => {
-  const FILTERS = [
-    { name: "Most Recent" },
-    { name: "Curated by Admin" },
-    { name: "Most Appreciated" },
-    { name: "Most Discussed" },
-    { name: "Most Viewed" },
-  ];
+  const posts = apiResponse?.articles?.map((article: any) => ({
+    id: article.id,
+    title: article.title,
+    href: `/single/${article.slug}`,
+    excerpt: article.excerpt,
+    featuredImage: article.featureImg,
+    slug: article.slug,
+    postType: "standard",
+    author: {
+      name: article.user.name,
+      avatar: article.user.avatar,
+    },
+    category: {
+      name: article.category.name,
+      color: article.category.color,
+    },
+    createdAt: article.created_at,
+  })) || [];
+
+  const FILTERS = [{ name: "Mais Recentes" }];
 
   return (
     <div className={`nc-PageArchive`}>
-      {/* HEADER */}
-      {/* <div className="w-full px-2 xl:max-w-screen-2xl mx-auto">
-        <div className="relative aspect-w-16 aspect-h-13 sm:aspect-h-9 lg:aspect-h-8 xl:aspect-h-5 rounded-3xl md:rounded-[40px] overflow-hidden z-0">
-          <Image
-            alt="archive"
-            fill
-            src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            className="object-cover w-full h-full rounded-3xl md:rounded-[40px]"
-            sizes="(max-width: 1280px) 100vw, 1536px"
-          />
-          <div className="absolute inset-0 bg-black text-white bg-opacity-30 flex flex-col items-center justify-center">
-            <h2 className="inline-block align-middle text-5xl font-semibold md:text-7xl ">
-              Garden
-            </h2>
-            <span className="block mt-4 text-neutral-300">115 Articles</span>
-          </div>
-        </div>
-      </div> */}
-      {/* ====================== END HEADER ====================== */}
-
       <div className="container pt-10 pb-16 lg:pb-28 lg:pt-20 space-y-16 lg:space-y-28">
         <div>
           <div className="flex flex-col sm:justify-between sm:flex-row">
@@ -65,9 +60,11 @@ const PageArchive = ({}) => {
 
           {/* LOOP ITEMS */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
-            {posts.map((post) => (
-              <Card11 key={post.id} post={post} />
-            ))}
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              posts.map((post: any) => <Card11 key={post.id} post={post} />)
+            )}
           </div>
 
           {/* PAGINATIONS */}
@@ -78,25 +75,20 @@ const PageArchive = ({}) => {
         </div>
 
         {/* MORE SECTIONS */}
-        {/* === SECTION 5 === */}
         <div className="relative py-16">
           <BackgroundSection />
-          <SectionGridCategoryBox
-            categories={DEMO_CATEGORIES.filter((_, i) => i < 10)}
-          />
+          <SectionGridCategoryBox categories={DEMO_CATEGORIES.filter((_, i) => i < 10)} />
           <div className="text-center mx-auto mt-10 md:mt-16">
             <ButtonSecondary loading>Show me more</ButtonSecondary>
           </div>
         </div>
 
-        {/* === SECTION 5 === */}
         <SectionSliderNewAuthors
           heading="Top elite authors"
           subHeading="Discover our elite writers"
           authors={DEMO_AUTHORS.filter((_, i) => i < 10)}
         />
 
-        {/* SUBCRIBES */}
         <SectionSubscribe2 />
       </div>
     </div>
