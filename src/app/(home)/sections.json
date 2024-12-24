@@ -55,6 +55,13 @@
         "filterType": "famosos",
         "startIndex": 0,
         "endIndex": 3
+      },
+      {
+        "id": "section11",
+        "component": "section11",
+        "filterType": "polícia",
+        "startIndex": 0,
+        "endIndex": 10
       }
     ]
   }

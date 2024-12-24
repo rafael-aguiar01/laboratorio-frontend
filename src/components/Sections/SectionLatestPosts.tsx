@@ -70,13 +70,13 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
     <div className={`nc-SectionLatestPosts relative ${className}`}>
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-3/5 xl:w-2/3 xl:pe-14">
-          <Heading>{heading}</Heading>
+          {/* <Heading>{heading}</Heading> */}
           <div className={`grid gap-6 md:gap-8 ${gridClass}`}>
             {posts.map(renderCard)}
           </div>
           <div className="flex flex-col mt-12 md:mt-20 space-y-5 sm:space-y-0 sm:space-x-3 rtl:space-x-reverse sm:flex-row sm:justify-between sm:items-center">
-            <Pagination />
-            <ButtonPrimary>Show me more</ButtonPrimary>
+            {/* <Pagination /> */}
+            <ButtonPrimary>Ver mais</ButtonPrimary>
           </div>
         </div>
         <div className="w-full space-y-7 mt-24 lg:mt-0 lg:w-2/5 lg:ps-10 xl:ps-0 xl:w-1/3 ">
