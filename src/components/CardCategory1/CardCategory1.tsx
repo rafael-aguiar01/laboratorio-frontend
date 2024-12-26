@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import NcImage from "@/components/NcImage/NcImage";
 import { TaxonomyType } from "@/data/types";
 import Link from "next/link";
+import { UrlObject } from 'url';
+
 
 export interface CardCategory1Props {
   className?: string;
@@ -14,13 +16,17 @@ const CardCategory1: FC<CardCategory1Props> = ({
   size = "normal",
   taxonomy,
 }) => {
-  const { count, name, href = "/", thumbnail } = taxonomy;
+  const { count, name, id, thumbnail } = taxonomy;
+  let href = `archive/${id}`
+  const formattedHref: UrlObject = {
+    pathname: href.startsWith('/') ? href : `/${href}`,
+  };
   return (
     <Link
-      href={href}
-      className={`nc-CardCategory1 flex items-center ${className}`}
+    href={formattedHref}
+    className={`nc-CardCategory1 flex items-center ${className}`}
     >
-      <NcImage
+      {/* <NcImage
         alt=""
         containerClassName={`relative flex-shrink-0 ${
           size === "large" ? "w-20 h-20" : "w-12 h-12"
@@ -29,7 +35,7 @@ const CardCategory1: FC<CardCategory1Props> = ({
         fill
         className="object-cover"
         sizes="80px"
-      />
+      /> */}
       <div>
         <h2
           className={`${
@@ -43,7 +49,7 @@ const CardCategory1: FC<CardCategory1Props> = ({
             size === "large" ? "text-sm" : "text-xs"
           } block mt-[2px] text-neutral-500 dark:text-neutral-400`}
         >
-          {count} Articles
+          {count} Notícias
         </span>
       </div>
     </Link>

@@ -14,15 +14,18 @@ import BackgroundSection from "@/components/BackgroundSection/BackgroundSection"
 import SectionGridCategoryBox from "@/components/SectionGridCategoryBox/SectionGridCategoryBox";
 import ButtonSecondary from "@/components/Button/ButtonSecondary";
 import SectionSliderNewAuthors from "@/components/SectionSliderNewAthors/SectionSliderNewAuthors";
-import { useGetCategoryArticlesQuery } from "@/services/api/articles/ServiceArticles";
+import { useGetTagArticlesQuery } from "@/services/api/articles/ServiceArticles";
 import Card18 from "@/components/Card18/Card18";
 import { useGetStatsQuery } from "@/services/api/stats/ServiceStats";
 
-const PageArchive = ({ params }: { params: { slug: string } }) => {
+//const PageArchive = ({ params }: { params: { tag: string } }) => {
+const PageArchive = ({ params }: any) => {
   const portalId = 3;
-  const category = params.slug;
-  const { data: apiResponse, isLoading } = useGetCategoryArticlesQuery({ portalId, category });
+  const tag = params.slug
+  console.log(tag)
+  const { data: apiResponse, isLoading } = useGetTagArticlesQuery({ portalId, tag });
   const { data: stats } = useGetStatsQuery(portalId)
+  console.log(apiResponse)
   let categories
   let tags
   if (stats){
@@ -32,10 +35,6 @@ const PageArchive = ({ params }: { params: { slug: string } }) => {
       href: "archive/the-demo-archive-slug",
     }));
   }
-
-  console.log('Categorias', categories)
-  console.log('Tags',tags)
-  // console.log(stats)
 
   const posts = apiResponse?.articles?.map((article: any) => ({
     id: article.id,
@@ -50,8 +49,8 @@ const PageArchive = ({ params }: { params: { slug: string } }) => {
       avatar: article.user.avatar,
     },
     category: {
-      name: article.category.name,
-      color: article.category.color,
+      name: '',
+      color: '',
     },
     createdAt: article.created_at,
   })) || [];

@@ -29,7 +29,7 @@ const postsDemo3: PostDataType[] = DEMO_POSTS_NEWS.filter(
 );
 
 const PageHomeDemo6: React.FC = () => {
-  const portalId = 4
+  const portalId = 3
   const { data: articles, isLoading } = useGetArticlesQuery(portalId)
   const sections = sectionsData.sections
   const posts = [postsDemo1, postsDemo2, postsDemo3]

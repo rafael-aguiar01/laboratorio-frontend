@@ -8,6 +8,9 @@ export const articlesApi = apiSlice.injectEndpoints({
     getCategoryArticles: builder.query({
       query: ({portalId, category}) => `/articles/${portalId}/${category}`,
     }),
+    getTagArticles: builder.query({
+      query: ({portalId, tag}) => `/articles/tag/${portalId}/${tag}`,
+    }),
     getArticle: builder.query({
       query: (slug: string) => `/articles/slug/${slug}`,
     }),
@@ -17,5 +20,6 @@ export const articlesApi = apiSlice.injectEndpoints({
 export const { 
   useGetArticlesQuery, 
   useGetCategoryArticlesQuery,
+  useGetTagArticlesQuery,
   useGetArticleQuery
 } = articlesApi;

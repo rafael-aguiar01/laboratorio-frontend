@@ -32,7 +32,7 @@ const ModalCategories: FC<ModalCategoriesProps> = ({ categories }) => {
             onClick={openModal}
           >
             <div>
-              <span className="hidden sm:inline">Other</span> Categories
+              <span className="hidden sm:inline">Outras</span> Categorias
             </div>
             <ChevronDownIcon
               className="w-4 h-4 ms-2 -me-1"
@@ -40,7 +40,7 @@ const ModalCategories: FC<ModalCategoriesProps> = ({ categories }) => {
             />
           </Button>
         )}
-        modalTitle="Discover other categories"
+        modalTitle="Busque outras categorias"
         renderContent={renderModalContent}
       />
     </div>
