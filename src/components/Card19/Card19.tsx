@@ -25,7 +25,7 @@ const Card19: FC<Card19Props> = ({
   hoverClass = "",
   showCategories = true,
 }) => {
-  const { title, href, featuredImage, categories, postType } = post;
+  const { title, href, featuredImage, tags, postType } = post;
 
   const renderMeta = () => {
     return (
@@ -77,7 +77,7 @@ const Card19: FC<Card19Props> = ({
         <Link href={href} className="absolute inset-0"></Link>
         {showCategories && (
           <div className="mb-3">
-            <CategoryBadgeList categories={categories} />
+            <CategoryBadgeList tags={tags} />
           </div>
         )}
         {renderMeta()}

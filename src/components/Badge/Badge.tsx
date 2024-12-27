@@ -5,7 +5,7 @@ import React, { FC, ReactNode } from "react";
 
 export interface BadgeProps {
   className?: string;
-  name: ReactNode;
+  name: any;
   color?: TwMainColor;
   href?: Route;
 }

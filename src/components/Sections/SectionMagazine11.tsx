@@ -1,7 +1,7 @@
 import Badge from "@/components/Badge/Badge";
 import Card18 from "@/components/Card18/Card18";
-import Heading from "@/components/Heading/Heading";
-import { DEMO_CATEGORIES } from "@/data/taxonomies";
+// import Heading from "@/components/Heading/Heading"; // Não é mais necessário
+// import { DEMO_CATEGORIES } from "@/data/taxonomies"; // Não é mais necessário
 import { PostDataType, TaxonomyType, TwMainColor } from "@/data/types";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import React, { FC } from "react";
@@ -11,7 +11,6 @@ export interface SectionMagazine11Props {
   posts2?: PostDataType[];
   posts3?: PostDataType[];
   className?: string;
-  categories?: TaxonomyType[];
 }
 
 const SectionMagazine11: FC<SectionMagazine11Props> = ({
@@ -19,12 +18,13 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
   posts2 = [],
   posts3 = [],
   className = "",
-  categories = [DEMO_CATEGORIES[0], DEMO_CATEGORIES[7], DEMO_CATEGORIES[4]],
 }) => {
-  const renderListByCat = (
-    category: TaxonomyType,
-    listPosts: PostDataType[]
-  ) => {
+  const renderListByCat = (listPosts: PostDataType[]) => {
+    const category = listPosts.length > 0 ? listPosts[0].category : null; 
+    if (!category) {
+      return null; 
+    }
+
     return (
       <div key={category.id} className={`flex flex-col space-y-4`}>
         <div className="flex items-center justify-between">
@@ -34,7 +34,7 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
             color={category.color as TwMainColor}
           />
           <a href="##" className="flex items-center text-xs text-neutral-500">
-            <span>More Articles</span>
+            <span>Mais Notícias</span>
             <ArrowRightIcon className="ms-1.5 w-3 h-3" />
           </a>
         </div>
@@ -69,13 +69,10 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
 
   return (
     <div className={`nc-SectionMagazine11 relative ${className}`}>
-      {/* <Heading desc={"Click on music icon and enjoy music or podcast"}>
-        Listen to audio live
-      </Heading> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-4 md:gap-7">
-        {renderListByCat(categories[0], posts1)}
-        {renderListByCat(categories[1], posts2)}
-        {renderListByCat(categories[2], posts3)}
+        {renderListByCat(posts1)}
+        {renderListByCat(posts2)}
+        {renderListByCat(posts3)}
       </div>
     </div>
   );

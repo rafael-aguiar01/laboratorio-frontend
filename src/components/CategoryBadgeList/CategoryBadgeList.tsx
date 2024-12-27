@@ -5,20 +5,20 @@ import Badge from "@/components/Badge/Badge";
 export interface CategoryBadgeListProps {
   className?: string;
   itemClass?: string;
-  categories: PostDataType["categories"];
+  tags: PostDataType["categories"];
 }
 
 const CategoryBadgeList: FC<CategoryBadgeListProps> = ({
   className = "flex flex-wrap space-x-2",
   itemClass,
-  categories,
+  tags,
 }) => {
   return (
     <div
       className={`nc-CategoryBadgeList ${className}`}
       data-nc-id="CategoryBadgeList"
     >
-      {categories.map((item, index) => (
+      {tags?.map((item, index) => (
         <Badge
           className={itemClass}
           key={index}

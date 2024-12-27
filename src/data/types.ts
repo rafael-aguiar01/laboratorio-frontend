@@ -39,7 +39,9 @@ export interface PostDataType {
   author: PostAuthorType;
   date: string;
   href: string;
-  categories: TaxonomyType[];
+  categories?: TaxonomyType[];
+  category?: any
+  tags: TaxonomyType[];
   title: string;
   featuredImage: string | StaticImageData;
   desc?: string;

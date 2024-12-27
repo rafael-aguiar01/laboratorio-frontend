@@ -47,7 +47,11 @@ export const distributeArticles = (
       title: article.title,
       href: `/single/${article.slug}`,
       featuredImage: article.featureImg,
-      categories: article.tags
+      category: article.category,
+      // categories: article.tags
+      //   ? article.tags.map((tag: string) => ({ name: tag }))
+      //   : [],
+      tags: article.tags
         ? article.tags.map((tag: string) => ({ name: tag }))
         : [],
       author: {

@@ -53,9 +53,6 @@ const PageHomeDemo6: React.FC = () => {
   const authorHome = authors?.authors.slice(0,5)
   const topArticles = articles?.articles.slice(0,4)
 
-  console.log(topArticles)
-
-
   if (isLoading) {
     return <div>Carregando...</div>; 
   }
