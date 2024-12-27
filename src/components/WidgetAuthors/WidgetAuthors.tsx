@@ -8,12 +8,12 @@ const authorsDemo: PostAuthorType[] = DEMO_AUTHORS.filter((_, i) => i < 5);
 
 export interface WidgetAuthorsProps {
   className?: string;
-  authors?: PostAuthorType[];
+  authors?: any;
 }
 
 const WidgetAuthors: FC<WidgetAuthorsProps> = ({
   className = "bg-neutral-100 dark:bg-neutral-800",
-  authors = authorsDemo,
+  authors,
 }) => {
   return (
     <div
@@ -25,7 +25,7 @@ const WidgetAuthors: FC<WidgetAuthorsProps> = ({
       />
       <div className="flow-root">
         <div className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700">
-          {authors.map((author) => (
+          {authors?.map((author: any) => (
             <CardAuthor
               className="p-4 xl:p-5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
               key={author.id}

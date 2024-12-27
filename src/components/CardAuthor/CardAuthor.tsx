@@ -5,11 +5,11 @@ import Link from "next/link";
 
 export interface CardAuthorProps {
   className?: string;
-  author: PostAuthorType;
+  author: any;
 }
 
 const CardAuthor: FC<CardAuthorProps> = ({ className = "", author }) => {
-  const { displayName, href = "/", avatar, jobName } = author;
+  const { name, href = "/", avatar, jobName } = author;
   return (
     <Link
       href={href}
@@ -20,13 +20,13 @@ const CardAuthor: FC<CardAuthorProps> = ({ className = "", author }) => {
         containerClassName="flex-shrink-0 me-4"
         radius="rounded-full"
         imgUrl={avatar}
-        userName={displayName}
+        userName={name}
       />
       <div>
         <h2
           className={`text-sm sm:text-base text-neutral-900 dark:text-neutral-100 font-medium sm:font-semibold`}
         >
-          {displayName}
+          {name}
         </h2>
         <span
           className={`block mt-[2px] text-xs text-neutral-500 dark:text-neutral-400`}

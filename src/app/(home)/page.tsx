@@ -13,6 +13,7 @@ import { useGetArticlesQuery } from "@/services/api/articles/ServiceArticles";
 import { distributeArticles } from "./distributeArticles";
 import { PostDataType } from "@/data/types";
 import { useGetStatsQuery } from "@/services/api/stats/ServiceStats";
+import { useGetAuthorsQuery } from "@/services/api/users/ServiceUsers";
 
 const MAGAZINE1_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 8 && i < 16);
 const MAGAZINE9_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 6 && i < 18)
@@ -33,6 +34,7 @@ const PageHomeDemo6: React.FC = () => {
   const portalId = 3
   const { data: articles, isLoading } = useGetArticlesQuery(portalId)
   const { data: stats } = useGetStatsQuery(portalId)
+  const { data: authors } = useGetAuthorsQuery(portalId)
 
   const sections = sectionsData.sections
   let tags
@@ -48,6 +50,11 @@ const PageHomeDemo6: React.FC = () => {
 
   const tagHome = tags?.slice(0,9)
   const categoryHome = categories?.slice(0,6)
+  const authorHome = authors?.authors.slice(0,5)
+  const topArticles = articles?.articles.slice(0,4)
+
+  console.log(topArticles)
+
 
   if (isLoading) {
     return <div>Carregando...</div>; 
@@ -105,6 +112,8 @@ const PageHomeDemo6: React.FC = () => {
               gridClass="sm:grid-cols-2"
               tags={tagHome}
               categories={categoryHome}
+              authors={authorHome}
+              topArticles={topArticles}
             />
           </div>
         </div>

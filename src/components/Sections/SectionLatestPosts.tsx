@@ -27,6 +27,8 @@ export interface SectionLatestPostsProps {
   heading?: string;
   tags: any;
   categories: any;
+  authors: any;
+  topArticles: any;
   postCardName?:
     | "card3"
     | "card4"
@@ -45,6 +47,8 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
   className = "",
   tags,
   categories,
+  authors,
+  topArticles
 }) => {
   const renderCard = (post: PostDataType, index: number) => {
     switch (postCardName) {
@@ -86,8 +90,8 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
         <div className="w-full space-y-7 mt-24 lg:mt-0 lg:w-2/5 lg:ps-10 xl:ps-0 xl:w-1/3 ">
           <WidgetTags tags={tags} />
           <WidgetCategories categories={categories}/>
-          <WidgetAuthors />
-          <WidgetPosts />
+          <WidgetAuthors authors={authors}/>
+          <WidgetPosts posts={topArticles}/>
         </div>
       </div>
     </div>
