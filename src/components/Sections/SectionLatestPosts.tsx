@@ -25,6 +25,8 @@ export interface SectionLatestPostsProps {
   gridClass?: string;
   className?: string;
   heading?: string;
+  tags: any;
+  categories: any;
   postCardName?:
     | "card3"
     | "card4"
@@ -41,6 +43,8 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
   heading = "Latest Articles 🎈",
   gridClass = "",
   className = "",
+  tags,
+  categories,
 }) => {
   const renderCard = (post: PostDataType, index: number) => {
     switch (postCardName) {
@@ -80,8 +84,8 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
           </div>
         </div>
         <div className="w-full space-y-7 mt-24 lg:mt-0 lg:w-2/5 lg:ps-10 xl:ps-0 xl:w-1/3 ">
-          <WidgetTags />
-          <WidgetCategories />
+          <WidgetTags tags={tags} />
+          <WidgetCategories categories={categories}/>
           <WidgetAuthors />
           <WidgetPosts />
         </div>

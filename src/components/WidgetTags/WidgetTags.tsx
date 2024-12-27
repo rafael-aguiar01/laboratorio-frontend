@@ -8,21 +8,21 @@ const tagsDemo = DEMO_TAGS.filter((_, i) => i < 9);
 
 export interface WidgetTagsProps {
   className?: string;
-  tags?: TaxonomyType[];
+  tags?: any;
 }
 
 const WidgetTags: FC<WidgetTagsProps> = ({
   className = "bg-neutral-100 dark:bg-neutral-800",
-  tags = tagsDemo,
+  tags
 }) => {
   return (
     <div className={`nc-WidgetTags rounded-3xl overflow-hidden ${className}`}>
       <WidgetHeading1
-        title="💡 More tags"
-        viewAll={{ label: "View all", href: "/#" }}
+        title="💡 Mais temas"
+        viewAll={{ label: "Ver todas", href: "/#" }}
       />
       <div className="flex flex-wrap p-4 xl:p-5">
-        {tags.map((tag) => (
+        {tags?.map((tag: any) => (
           <Tag className="mr-2 mb-2" key={tag.id} tag={tag} />
         ))}
       </div>

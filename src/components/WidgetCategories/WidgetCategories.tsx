@@ -9,24 +9,24 @@ const categoriesDemo: TaxonomyType[] = DEMO_CATEGORIES.filter(
 );
 export interface WidgetCategoriesProps {
   className?: string;
-  categories?: TaxonomyType[];
+  categories?: any;
 }
 
 const WidgetCategories: FC<WidgetCategoriesProps> = ({
   className = "bg-neutral-100 dark:bg-neutral-800",
-  categories = categoriesDemo,
+  categories,
 }) => {
   return (
     <div
       className={`nc-WidgetCategories rounded-3xl  overflow-hidden ${className}`}
     >
       <WidgetHeading1
-        title="✨ Trending topic"
-        viewAll={{ label: "View all", href: "/#" }}
+        title="✨ O que está em alta"
+        viewAll={{ label: "Ver tudo", href: "/#" }}
       />
       <div className="flow-root">
         <div className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700">
-          {categories.map((category) => (
+          {categories?.map((category: any) => (
             <CardCategory1
               className="p-4 xl:p-5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
               key={category.id}

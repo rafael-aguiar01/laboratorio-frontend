@@ -20,8 +20,8 @@ const WidgetAuthors: FC<WidgetAuthorsProps> = ({
       className={`nc-WidgetAuthors rounded-3xl overflow-hidden ${className}`}
     >
       <WidgetHeading1
-        title="🎭 Discover Authors"
-        viewAll={{ label: "View all", href: "/#" }}
+        title="🎭 Criadores de conteúdo"
+        viewAll={{ label: "Ver tudo", href: "/#" }}
       />
       <div className="flow-root">
         <div className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700">

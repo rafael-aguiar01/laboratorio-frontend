@@ -12,6 +12,7 @@ import sectionsData from './sections.json'
 import { useGetArticlesQuery } from "@/services/api/articles/ServiceArticles";
 import { distributeArticles } from "./distributeArticles";
 import { PostDataType } from "@/data/types";
+import { useGetStatsQuery } from "@/services/api/stats/ServiceStats";
 
 const MAGAZINE1_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 8 && i < 16);
 const MAGAZINE9_POSTS = DEMO_POSTS_NEWS.filter((_, i) => i >= 6 && i < 18)
@@ -31,8 +32,22 @@ const postsDemo3: PostDataType[] = DEMO_POSTS_NEWS.filter(
 const PageHomeDemo6: React.FC = () => {
   const portalId = 3
   const { data: articles, isLoading } = useGetArticlesQuery(portalId)
+  const { data: stats } = useGetStatsQuery(portalId)
+
   const sections = sectionsData.sections
-  const posts = [postsDemo1, postsDemo2, postsDemo3]
+  let tags
+  let categories
+
+  if (stats){
+    categories = stats?.stats.categories
+    tags = stats?.stats.tags?.map((tag: any) => ({
+      ...tag,
+      href: "archive/the-demo-archive-slug",
+    }));
+  }
+
+  const tagHome = tags?.slice(0,9)
+  const categoryHome = categories?.slice(0,6)
 
   if (isLoading) {
     return <div>Carregando...</div>; 
@@ -88,6 +103,8 @@ const PageHomeDemo6: React.FC = () => {
               // posts={MAGAZINE11_POSTS}
               postCardName="card4"
               gridClass="sm:grid-cols-2"
+              tags={tagHome}
+              categories={categoryHome}
             />
           </div>
         </div>

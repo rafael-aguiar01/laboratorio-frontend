@@ -20,8 +20,8 @@ const WidgetPosts: FC<WidgetPostsProps> = ({
   return (
     <div className={`nc-WidgetPosts rounded-3xl overflow-hidden ${className}`}>
       <WidgetHeading1
-        title="🎯 Popular Posts"
-        viewAll={{ label: "View all", href: "/#" }}
+        title="🎯 Notícias mais lidas"
+        viewAll={{ label: "Ver tudo", href: "/#" }}
       />
       <div className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700">
         {posts.map((post) => (
